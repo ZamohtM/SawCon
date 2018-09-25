@@ -10,4 +10,6 @@ int main()
 	}
 	
 	printf("Takeoff");
+	
+	return 0;
 }
