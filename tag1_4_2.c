@@ -6,9 +6,10 @@ int main()
 
 	while (counter >= 1)
 	{
-		printf("Counter: %i\n", counter--);
+		printf("Counter: %i\n", counter);
+		counter--;
 	}
-	
+
 	printf("Takeoff");
 
 	return 0;
