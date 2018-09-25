@@ -2,11 +2,11 @@
 
 int main()
 {
-	int number;
+	int counter;
 
-	for (number = 10; number >= 1; number--)
+	for (counter = 10; counter >= 1; counter--)
 	{
-		printf("Number: %d\n", number);
+		printf("Number: %d\n", counter);
 	}
 	
 	printf("Takeoff");
