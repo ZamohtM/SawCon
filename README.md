@@ -6,6 +6,6 @@ Text Text
 * Zwei
 * Drei
 
-<u>ABCDEFGHIJKLMNOPQRSTUVWXYZ </u><br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ <br>
 text <br>
 text
