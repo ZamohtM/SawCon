@@ -2,6 +2,6 @@
 
 Text Text
 
-*Eins
-*Zwei
-*Drei
+* Eins
+* Zwei
+* Drei
