@@ -9,19 +9,16 @@ int counterSum(int a) {
 	printf("%d\n", sum);
 }
 
-int counterSumRec(int b) {
-    int sumR = 0;
-	if (b) {
-	    sumR = sumR + b;
-		counterSumRec(b - 1);
-	}
-	
-	printf("%d\n", sumR);
+int counterSumRec(int a, int sum) {
+    
+    if(a) {
+        return a + counterSumRec(a-1, sum);
+    }return 0;
 }
 
 
 int main() {
 
 	counterSum(5);
-	counterSumRec(5);
+	printf("Summe: %d\n", counterSumRec(5,0));
 }
