@@ -9,10 +9,10 @@ int counterSum(int a) {
 	printf("%d\n", sum);
 }
 
-int counterSumRec(int a, int sum) {
+int counterSumRec(int a) {
     
     if(a) {
-        return a + counterSumRec(a-1, sum);
+        return a + counterSumRec(a-1);
     }return 0;
 }
 
@@ -20,5 +20,5 @@ int counterSumRec(int a, int sum) {
 int main() {
 
 	counterSum(5);
-	printf("Summe: %d\n", counterSumRec(5,0));
+	printf("Summe: %d\n", counterSumRec(5));
 }
