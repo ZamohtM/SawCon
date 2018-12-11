@@ -1,35 +1,38 @@
 #include <stdio.h>
 #include <string.h>
-
-void intoArray(int*, int);
-void zeigeArrayInKonsole(int*, int);
-void dreiEcksTausch(int*,int);
-
+#include <stdlib.h>
+#include <time.h>
 
 int main()
 {
     
-   int number = 2893457;
-   int len = 7;
-   printf("z1: %d\n",number);
-   int array[]={0};
+   const int anz = 10;
+   int z[anz];
    
+   erzeugeArray(z,anz);
+   printf("Array mit %d Zahlen:\n", anz);
+   zeigeArrayInKonsole(z, anz);
+   /*bubbleSort(z,anz);
+   printf("\nArray mit %d Zahlen sortiert:\n",anz);
+   zeigeArrayInKonsole(z,anz);*/
+   
+   return 0;
 }
 
-void intoArray(int* number, int len, int array[]) {
-    
-    
+void erzeugeArray(int * array, int len) {
+    srand(time(0));
     for(int i = 0; i < len; i ++) {
-        array[i] = number % 10;
-        number = number / 10;
+        int random = rand();
+        array[i] = random%100;
     }
-    
-    
 }
 
-
-void zeigeArrayInKonsole(int* array, int len) {
-    
+void zeigeArrayInKonsole(int * array, int len) {
+    for(int i=0; i < len; i++) {
+       printf("%d ",array[i]);
+   }
 }
 
-void dreiEcksTausch(int* array,int len);
+void bubbleSort(int * array, int len) {
+    
+}
