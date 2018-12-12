@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-#include <time.h>
 
 int main()
 {
@@ -35,19 +33,23 @@ void zeigeArrayInKonsole(int * array, int len) {
 
 void bubbleSort(int * array, int len)
 {
-   int i, j,tmp;
-
-   for (i = 1; i < len ; i++) 
+    int d, v, tmp;
+    int getauscht = 0;
+   for (d = 1; d < len ; d++) 
    {
-      for (j = 0; j < len - i ; j++) 
+       getauscht = 0;
+      for (v = 0; v < len - d ; v++) 
       {
-          if (array[j] > array[j+1]) 
+          if (array[v] > array[v+1]) 
           {
-              tmp = array[j];
-              array[j] = array[j+1];
-              array[j+1] = tmp;
+              tmp = array[v];
+              array[v] = array[v+1];
+              array[v+1] = tmp;
+              getauscht = 1;
           }
+      }
+      if (getauscht == 0) {
+          break;
       }
    }
 }
-
