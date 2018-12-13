@@ -41,6 +41,14 @@ void showArray(int * array, int len) {
    }
 }
 
+void pankiSwap (int * array, int compare) {
+    
+    int tmp = 0;
+    tmp = array[compare];
+    array[compare] = array[compare+1];
+    array[compare+1] = tmp;
+}
+
 int bubbleSort(int * array, int len)
 {
     int runs, compare, tmp;
@@ -53,9 +61,7 @@ int bubbleSort(int * array, int len)
       {
           if (array[compare] > array[compare+1]) 
           {
-              tmp = array[compare];
-              array[compare] = array[compare+1];
-              array[compare+1] = tmp;
+              pankiSwap(array, compare);
               swap = 1;
           }
           numSwaps++;
