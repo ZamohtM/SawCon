@@ -3,27 +3,31 @@
 
 int main()
 {
-    
-   const int anz = 10;
-   int z[anz];
+   int len = 10;
+   int array[len];
    int gaus = 0;
+   int numCompare;
    
-   gaus = (anz/2)*(1+anz);
+   gaus = (len/2)*(1+len);
    
-   erzeugeArray(z,anz);
-   printf("Array mit %d Zahlen:\n", anz);
-   zeigeArrayInKonsole(z, anz);
-   bubbleSort(z,anz);
-   printf("\nArray mit %d Zahlen sortiert:\n",anz);
-   zeigeArrayInKonsole(z,anz);
-   printf("\n\nMaximalzahl der nötigen Vergleiche wäre (%d-1)*(%d-1) = %d", anz, anz, (anz-1)*(anz-1));
-   printf("\nVerbesserte Version (pro Durchlauf 1 Vergleich weniger) wäre (9+8+7+6+ ... +2+1) = %d", gaus);
-   printf("\nVerbesserte Verbessete Version: %d", bubbleSort(z,anz));
+   creatArray(array,len);
+   
+   printf("Array mit %d Zahlen:\n", len);
+   showArray(array, len);
+   
+   numCompare = bubbleSort(array,len);
+   
+   printf("\nArray mit %d Zahlen sortiert:\n",len);
+   showArray(array,len);
+   
+   printf("\n\nMaximalzahl der nötigen Vergleiche wäre (%d-1)*(%d-1) = %d", len, len, (len-1)*(len-1));
+   printf("\nVerbesserte Version (pro Durchlauf 1 Vergleich weniger) wäre (%d+%d+%d ... +3+2+1) = %d",len,len-1,len-2, gaus);
+   printf("\nVerbesserte Verbessete Version: %d",numCompare);
    
    return 0;
 }
 
-void erzeugeArray(int * array, int len) {
+void creatArray(int * array, int len) {
     srand(time(0));
     for(int i = 0; i < len; i ++) {
         int random = rand();
@@ -31,7 +35,7 @@ void erzeugeArray(int * array, int len) {
     }
 }
 
-void zeigeArrayInKonsole(int * array, int len) {
+void showArray(int * array, int len) {
     for(int i=0; i < len; i++) {
        printf("%d ",array[i]);
    }
@@ -39,27 +43,26 @@ void zeigeArrayInKonsole(int * array, int len) {
 
 int bubbleSort(int * array, int len)
 {
-    int d, v, tmp;
-    int getauscht = 0;
-    int anzVertauschungen = 0;
-   for (d = 1; d < len ; d++) 
+    int runs, compare, tmp;
+    int swap = 0;
+    int numSwaps = 0;
+   for (runs = 1; runs < len ; runs++) 
    {
-       getauscht = 0;
-      for (v = 0; v < len - d ; v++) 
+       swap = 0;
+      for (compare = 0; compare < len - runs ; compare++) 
       {
-          if (array[v] > array[v+1]) 
+          if (array[compare] > array[compare+1]) 
           {
-              tmp = array[v];
-              array[v] = array[v+1];
-              array[v+1] = tmp;
-              getauscht = 1;
+              tmp = array[compare];
+              array[compare] = array[compare+1];
+              array[compare+1] = tmp;
+              swap = 1;
           }
-          anzVertauschungen++;
+          numSwaps++;
       }
-      if (getauscht == 0) {
+      if (swap == 0) {
           break;
       }
-    
    }
-   return anzVertauschungen;
+   return numSwaps;
 }
