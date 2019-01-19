@@ -59,7 +59,7 @@ void convertArray(int *array, int size, int average)
     printf("\nArray mit gleichem Durchschnitt\n");
     for(int i = 0; i < size; i++)
     {
-        if (array[i]*0,8 < average || array[i]*1.20 > average)
+        if (average*0.80 > array[i] || average*1.20 < array[i])
         {
             array[i] = average;
         }
@@ -67,22 +67,79 @@ void convertArray(int *array, int size, int average)
     }
 }
 
+int min(int *array, int size)
+{
+    printf("\nMinimum:\n");
+    int min = array[0];
+    
+    for(int i = 1; i < size; i++) 
+    {
+        if(array[i] < min)
+        {
+            min = array[i];
+        }
+    }
+    printf("%d", min);
+}
+
+int max(int *array, int size)
+{
+    printf("\nMaximum:\n");
+    int max = array[0];
+    
+    for(int i = 1; i < size; i++) 
+    {
+        if(array[i] > max)
+        {
+            max = array[i];
+        }
+    }
+    printf("%d", max);
+}
+
+void countNumbers(int *array, int size)
+{
+    int singleDigit = 0;
+    int doubleDigit = 0;
+    int others = 0;
+    
+    for(int i = 0; i < size; i++) {
+        if (array[i] < 10) 
+        {
+            singleDigit = singleDigit +1;
+        } 
+        if(array[i] <= 99 && array[i] >= 10)
+        {
+            doubleDigit = doubleDigit +1;
+        }
+        if(array[i] >= 100)
+        {
+            others = others +1;
+        }
+    }
+    
+    printf("\nEinstellige Zahlen: %d", singleDigit);
+    printf("\nZweistellige Zahlen: %d", doubleDigit);
+    printf("\nAndere Zahlen: %d", others);
+}
+
 int main()
 {
-	int size = 10;
-	int array[size];
+    int size = 20;
+    int array[size];
     
     newArray(array, size);
     showArray(array, size);
     showArrayInReverse(array, size);
     sumCalculator(array, size);
-    
-    printf("%d", )
+    min(array, size);
+    max(array, size);
+    countNumbers(array, size);
     
     int average = averageCalculator(array, size);
+    printf("%d", average);
     
+    convertArray(array, size, average);
     
-    
-    
-	return 0;
+    return 0;
 }
