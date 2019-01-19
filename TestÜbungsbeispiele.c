@@ -49,7 +49,9 @@ int averageCalculator(int *array, int size)
     for(int i = 0; i < size; i++)
     {
         average = average + array[i];
-    } average = average/size;
+    } 
+    
+    average = average/size;
     
     return average;
 }
